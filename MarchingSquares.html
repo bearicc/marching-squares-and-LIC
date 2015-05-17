@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Marching Squares - by Hao Xiong</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <style>
+        html, body, #main, #main .row, #main .col-md-8, canvas {
+            min-height: 100%;
+            height: 100%;
+        }
+        #main .col-md-4, #main .col-md-8 {
+            box-sizing: border-box;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        form {
+            border: 1px solid #000000;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-shadow: 2px 2px rgba(0, 0, 0, .5);
+        }
+        canvas {
+            box-sizing: border-box;
+            border: 1px solid #000000;
+            height: 100%;
+        }
+        legend {
+            border-bottom-color: blue;
+            color: blue;
+        }
+        .form-group {
+            margin: 5px auto;
+        }
+        #info {
+            margin: 10px auto;
+            min-width: 100%;
+            min-height: 30px;
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container-fluid" id="main">
+        <div class="row">
+            <div class="col-md-4">
+                <form class="form-inline" role="form">
+                    <legend>Visualization Parameters</legend>
+                    <div class="form-group">
+                        <div class="checkbox"><label><input type="checkbox" id="equal_size" checked>Canvas Equal Size</label></div>
+                    </div>
+                    <div class="form-group">
+                        Image Resolution <input type="text" id="image_res" value="50" class="form-control" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Color Map</label>
+                        <label class="radio-inline">
+                            <input type="radio" name="color" id="rainbow" value="rainbow"checked > Rainbow
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="color" id="greyscale" value="greyscale"> Greyscale
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>Contour Value </label>
+                        <input type="text" value=".5 .6 .7 .8"  class="form-control" id="contour">
+                        <p class="help-block">Separated by blank space</p>
+                    </div>
+
+                </form>
+
+                <form>
+                    <legend>Data Source</legend>
+                    <input type="file" id="files" name="files[]" multiple /><output id="list"></output>
+                    <div class="form-group">
+                        <label>Built-In Functions</label>
+                        <label class="radio-inline">
+                            <input type="radio" name="func" id="gaussian" value="gaussian" checked> Gaussian
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="func" id="sine" value="Sine"> Sine
+                        </label>
+                    </div>
+                </form>
+                <button class="btn btn-success"><span>Render</span></button>
+                <div id="info"></div>
+            </div>
+
+            <div class="col-md-8">
+                <canvas>
+                    Please use a browser that supports "canvas"
+                </canvas >
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="MarchingSqaures.js"></script>
+</body>
+</html>

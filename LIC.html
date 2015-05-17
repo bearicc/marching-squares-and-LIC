@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>LIC by Hao Xiong</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <style>
+        html, body, #main, #main .row, #main .col-md-8 {
+            min-height: 100%;
+            height: 100%;
+        }
+        #main .col-md-4, #main .col-md-8 {
+            box-sizing: border-box;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        form {
+            border: 1px solid #000000;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-shadow: 2px 2px rgba(0, 0, 0, .5);
+        }
+        canvas {
+            box-sizing: border-box;
+            border: 1px solid #000000;
+            height: 600px;
+            width: 600px;
+        }
+        legend {
+            border-bottom-color: blue;
+            color: blue;
+        }
+        .form-group {
+            margin: 5px auto;
+        }
+        #info {
+            padding: 5px;
+            border: 1px solid black;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid" id="main">
+        <div class="row">
+            <div class="col-md-4">
+                <form class="form-inline" role="form">
+                    <legend>Visualization Parameters</legend>
+                    <p id="info">Resolution: 600</p>
+                    <div class="form-group">
+                        L <input type="text" id="image_res" value="10" class="form-control">
+                        <p class="help-block">Line Integration Range</p>
+                    </div><br>
+                    <div class="form-group">
+                        <label>Color Map</label>
+                        <label class="radio-inline">
+                            <input type="radio" name="color" id="greyscale" value="greyscale" checked> Greyscale
+                        </label>
+                    </div>
+                </form>
+
+                <form>
+                    <legend>Data Source</legend>
+                    <input type="file" id="files" name="files[]" multiple /><output id="list"></output>
+                    <div class="form-group">
+                        <label>Built-In Functions</label>
+                        <label class="radio-inline">
+                            <input type="radio" name="func" id="gaussian" value="gaussian" checked> Gaussian
+                        </label>
+                    </div>
+                </form>
+                <button class="btn btn-success"><span>Render</span></button>
+            </div>
+
+            <div class="col-md-8">
+                <canvas id="can">
+                    Please use a browser that supports "canvas"
+                </canvas >
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="LIC.js"></script>
+</body>
+</html>
